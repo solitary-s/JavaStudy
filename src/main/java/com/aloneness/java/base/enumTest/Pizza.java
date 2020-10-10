@@ -1,7 +1,10 @@
 package com.aloneness.java.base.enumTest;
 
+import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Pizza {
 
@@ -54,11 +57,18 @@ public class Pizza {
         this.status = status;
     }
 
-    public boolean isDelivered() {
-        return this.status.isReady();
+    public PizzaStatus getStatus() {
+        return status;
     }
 
-    public static void main(String[] args) {
-        EnumSet<PizzaStatus> enumSet = EnumSet.of(PizzaStatus.READY, PizzaStatus.ORDERED);
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "status=" + status +
+                '}';
+    }
+
+    public boolean isDelivered() {
+        return this.status.isReady();
     }
 }
